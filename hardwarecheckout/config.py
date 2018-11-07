@@ -41,7 +41,7 @@ FORCE_SSL = False
 
 ## Metadata ##
 
-HACKATHON_NAME = "CreatED"
+HACKATHON_NAME = "HackPrinceton"
 
 ## Event logistical settings ##
 
