@@ -7,7 +7,6 @@ class User(db.Model):
     name = db.Column(db.String())
     phone = db.Column(db.String(255))
     email = db.Column(db.String(), unique=True)
-    cv = db.Column(db.String())
     notifications = db.Column(db.Boolean)
     have_their_id = db.Column(db.Boolean)
     requests = db.relationship('Request', back_populates='user')

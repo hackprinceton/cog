@@ -34,14 +34,6 @@
             <label for="phone">Phone number *</label>
             <input type="text" name="phone" placeholder="Phone Number" value="{{ target.phone }}">
         </div>
-        <div class="three wide field">
-        {% if not target.cv %}
-            <label id="cvlabel" for="cv">Upload your CV (optional, recommended for sponsor interviews)</label>
-        {% else %}
-            <label id="cvlabel" for="cv">CV uploaded</label>
-        {% endif %}
-            <input type="file" name="cv" id="cvupload">
-        </div>
         <div class="one wide field">
             <button class="ui primary update-user button" data-id="{{ target.id }}" type="submit">
                Update 
@@ -49,19 +41,6 @@
         </div>
     </div>
     <div class="ui error message"></div>
-    <div class="ui modal" id="sponsor-agreement">
-        <div class="header">Third party data processing</div>
-        <div id="sponsormodalcontent" class="content">
-            <p>By uploading your CV, you agree for it to be passed on to sponsors for recruiting purposes. Our data protection policy is <a href="https://createdhack.github.io/assets/pdf/datapolicy.pdf">here</a>.</p>
-            {% if user.cv %}
-            <p>You have already uploaded a CV, are you sure you want to replace it?</p>
-            {% endif %}
-        </div>
-        <div class="actions">
-            <div class="ui cancel button">Cancel</div>
-            <div class="ui approve button">Ok</div>
-        </div>
-    </div>
 </form>
  
 {% if target.items %}
