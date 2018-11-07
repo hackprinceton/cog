@@ -14,6 +14,7 @@ SECRET = os.environ['SECRET']
 
 # OAuth Credentials
 OAUTH_CREDENTIALS = {'id': os.environ['OAUTH_ID'], 'secret': os.environ['OAUTH_SECRET']}
+OAUTH_BASE_URL = os.environ['OAUTH_BASE_URL']
 
 # Whitelist for admins
 ADMINS = []

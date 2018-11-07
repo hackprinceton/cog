@@ -7,7 +7,7 @@ import datetime
 import json
 from urlparse import urljoin
 from hardwarecheckout.forms.login_form import LoginForm
-from mlh_oauth import MLHSignIn
+from oauth import OAuthSignIn
 from flask import (
     flash,
     redirect,
@@ -18,23 +18,29 @@ from flask import (
 
 @app.route('/login')
 def login_page():
-    mlh = MLHSignIn()
-    return mlh.authorize()
+    oauth = OAuthSignIn()
+    return oauth.authorize()
 
-@app.route('/callback/mlh')
+@app.route('/callback/oauth')
 def oauth_callback():
     if 'jwt' in request.cookies:
         token = verify_token(request.cookies['jwt'])
         if token is not None:
             return redirect('/inventory')
-    mlh = MLHSignIn()
-    id_, email = mlh.callback()
+    oauth = OAuthSignIn()
+    id_, email, admin, name, phone = oauth.callback()
+    print(phone)
     if id_ is None:
         flash('Authentication failed.')
         return redirect('/inventory')
     if User.query.filter_by(email=email).count() == 0:
-        admin = email in config.ADMINS
-        user = User(email, admin)
+        admin = admin or email in config.ADMINS
+        user = User(
+            email=email,
+            is_admin=admin,
+            name=name,
+            phone=phone,
+        )
         db.session.add(user)
         db.session.commit()
 

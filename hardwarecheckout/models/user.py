@@ -1,5 +1,6 @@
 from hardwarecheckout.models import db
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     is_admin = db.Column(db.Boolean)
@@ -14,12 +15,15 @@ class User(db.Model):
 
     items = db.relationship('Item', backref='user')
 
-    def __init__(self, email, is_admin):
+
+
+    def __init__(self, email, is_admin=False, name=None, phone=None):
         self.email = email
         self.is_admin = is_admin
-        self.name = ''
-        self.location = ''
-        self.phone = ''
+        if name is not None:
+            self.name = name
+        if phone is not None:
+            self.phone = phone
         self.notifications = False
         self.have_their_id = False
 

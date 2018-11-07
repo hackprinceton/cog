@@ -59,7 +59,6 @@ def auth_optional():
         def decorated(*args, **kwargs):
             if 'jwt' in request.cookies:
                 email = verify_token(request.cookies['jwt'])
-                print("Email: {}".format(email))
                 if not email:
                     f.__globals__['user'] = None
                     return f(*args, **kwargs)
