@@ -3,7 +3,7 @@ from wtforms_alchemy import PhoneNumberField
 
 class UserUpdateForm(Form):
     location = StringField('location', [validators.Length(max=120)])
-    phone = PhoneNumberField('phone', country_code='GB')
+    phone = PhoneNumberField('phone')
     name = StringField('name', [validators.Length(max=255)])
     def validate(self):
         res = super(UserUpdateForm, self).validate()
