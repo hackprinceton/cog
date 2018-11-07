@@ -1,0 +1,37 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+"beautifulsoup4" = "*"
+pytest = "*"
+python-engineio = "*"
+python-jose = "*"
+python-socketio = "*"
+pytz = "*"
+requests = "*"
+Babel = "*"
+Flask = "*"
+Flask-Admin = "*"
+Flask-Markdown = "*"
+Flask-SocketIO = "*"
+Flask-SQLAlchemy = "*"
+Flask-SSLify = "*"
+SQLAlchemy = "*"
+SQLAlchemy-Utils = "*"
+Werkzeug = "*"
+WTForms = "*"
+WTForms-Alchemy = "*"
+WTForms-Components = "*"
+"enum34" = "*"
+"psycopg2" = "*"
+gevent = "*"
+rauth = "*"
+
+[dev-packages]
+rope = "*"
+pylint = "<2.0.0"
+
+[requires]
+python_version = "2.7"
